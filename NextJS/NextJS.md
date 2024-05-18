@@ -1,6 +1,6 @@
-## Next.js and React
-### Version for Next.js: 14.2.3
-### Components
+# Next.js and React
+## Version for Next.js: 14.2.3
+## Components
 - As convention React components start with capital letter.
 - Every component in React is a function that returns some HTML.
 - React components can be used as any HTML tag.
@@ -15,7 +15,7 @@ root.render(<Header />);
 ```
 - Components can be nested inside each other. Simply use the component as a **tag** inside the HTML of another component.
 
-#### Displaying data with props
+### Displaying data with props
 - As in regular HTML, you can pass arguments/props (like `src= something`) to the React Components.
 
 **To pass props:**
@@ -62,7 +62,7 @@ function Header({ title }) {
 }
 ```
 
-#### Iterating through lists
+### Iterating through lists
 ```JavaScript
 function HomePage() {
   const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
@@ -79,7 +79,7 @@ function HomePage() {
   );
 }
 ```
-#### Adding Interactivity with State
+### Adding Interactivity with State
 - To add interactivity we can specify method names in `{}` as arguments for parameters like `onClick`.
 ```JavaScript
 function HomePage() {
@@ -98,7 +98,7 @@ function HomePage() {
      )
    }
 ```
-#### State
+### State
 - To keep state (for example to keep the value of an input, or to save if a button was pressed, or switch) we use `useState()`.
   - `useState()` returns an array. You can extract its values with **array destructuring** as following: `const [] = useState();`.
   
@@ -116,9 +116,9 @@ useState(_default_value);
 
 **ATTENTION:** The `useState` instruction must be done inside a component.
 
-### Routing
+## Routing
 We use `app` routing for the project since it is more modern.
-#### Directory routing
+### Directory routing
 For the Next.js routing the directory structure itself is used for the routing.
 
 ![alt text](image-3.png)
@@ -128,7 +128,7 @@ The root route `/` is served directly from `app` directory.
 
 **Good to know: `.js`, `.jsx`, or `.tsx` file extensions can be used for special files.** These special file extensions are the ones that serve the content when accessing the websites. 
 
-#### Document names have special meanings
+### Document names have special meanings
 - `layout`	Shared UI for a segment and its children
 - `page`	Unique UI of a route and make routes publicly accessible
 - `route`	Server-side API endpoint
@@ -139,7 +139,7 @@ This is because while folders define routes, only the contents returned by `page
 
 ![alt text](image-4.png)
 If we access `/api` or `/dashboard` we would be automatically served whatever the `default export function` of `route` returns.
-#### Page
+### Page
 A page is UI that is unique to a route. You can define a page by default exporting a component from a `page.js` file. 
 Each directory (directory -> URL path) that returns something to the web browser should have a `page.js` (`.jsx` `.tsx` also allowed).
 
@@ -165,7 +165,7 @@ export default function Page() {
 - Pages are **Server Components** by default, but can be set to a **Client Component** with the directive `'use client';` -> some components like `onClick` and other event listeners or `on_Action_` are **ONLY** for the Client Side.
 - Pages can fetch data.
   
-#### Layouts
+### Layouts
 A layout is UI that is **shared** between multiple routes. On navigation, layouts preserve state, remain interactive, and do not re-render. Layouts can also be nested.
 
 You can define a layout by default exporting a React component from a `layout.js` file. The component should accept a `children` prop that will be populated with a child layout (if it exists) or a page during rendering.
@@ -209,24 +209,24 @@ export default function RootLayout({
   )
 }
 ```
-### Dynamic routing
+## Dynamic routing
 As convention, to mark a dynamic route (route where can have variables in the URL) we use `[route_name]` directory. Inside the `page.tsx` of the `[route_name]` directory we can access the variable sent to this route by having `{params}:{params:{route_name:Type, param2:Type,...}}` as parameter to the function and calling `params.route_name` to retrieve the value inside the default exported function of the `page.tsx`. Basically `[route_name]` is a placeholder for the value sent in the URL.
 
-### Memorizing Values
+## Memorizing Values
 These techniques help in mitigated rendering React multiple times for state updates that do not actually change the state (For example when changing the form and the same input is given).
-#### Callback
+### Callback
 - Using `useCallback(_func_,[state_variables])` we can prevent calling this `_func_` multiple times if the `state_variables` do not change.  `_func_` is only called if one of the variables changes.
 - `useCallback` returns the memoized callback function itself
 
-#### Ref
+### Ref
 - `useRef(_init_val)` returns a mutable reference variable.
 - Should **NOT** be used during render.
 
-#### Memo
+### Memo
 - `memo(_func_)` is used to memoize a React component.
 - `useMemo` returns the memoized value itself.
 
-### Image Optimization
+## Image Optimization
 - The framework for this is called `sharp`. To install it run:
 ```sh
 npm i sharp
