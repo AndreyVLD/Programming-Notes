@@ -1,5 +1,10 @@
 # TypeScript
 JavaScript but with types
+
+## Data Types:
+- `number`: both floats and integers
+  - Special values: `Infinity`, `-Infinity` and `Nan`
+- 
 ## Functions
 - `function` keyword for declaring functions.
 - `export` keyword used for declaring public functions that can be accessed from outside the current file.
