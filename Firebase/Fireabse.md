@@ -85,6 +85,7 @@ As good practice include them in `.env.local` inside hosting and commit that fil
 ## Firebase and NextJS
 
 ### How to install and set-up Next.js in firebase, a list of commands
+A new feature has been added recently, and it is more recommended: https://firebase.google.com/docs/app-hosting.
 - First you need to enable experimental features.
 ```sh
 firebase experiments:enable webframeworks
