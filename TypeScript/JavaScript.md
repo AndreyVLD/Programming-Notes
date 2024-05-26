@@ -6,7 +6,7 @@
 - `BigInt`: to store values larger than 64 bits.
   - To create a BigInt you need to append `n` to the number.
   - Example: `const bigInt = 1234567890123456789012345678901234567890n;`
-- `string`: can be surrounded by both `"` and `'` or backticks.
+- `string`: can be surrounded by both `"` and `'` or backticks: `.
 - `boolean`
 - `null`: reference to a non-existent object.
 - `undefined`: value is not assigned yet.
@@ -32,3 +32,5 @@ Returns the type of the operand: `typeof 0 // "number"`
 ### Confirm
 - The function `confirm` shows a modal window with a `question` and two buttons: OK and Cancel.
 - Example: `confirm(question);`
+
+## Type Conversion

@@ -124,3 +124,57 @@ How to behave if we have more items than there is space.
 
 ### Padding
 - To control the padding use `p-*`
+
+#### Alignment:
+
+**IMPORTANT**:
+- justify = main axis
+- align = cross axis
+- place = both axis
+
+**IMPORTANT**:
+- content = whole content is placed
+- items = items are placed inside the cells
+- self = one item is placed inside the cell
+
+**THIS GOES FOR ONLY CONTAINERS (BOTH GRID AND FLEXBOX)**
+- Use **justify content** to align items along the main axis.
+  - `justify-center` to center the items.
+  - `justify-start` to align items to the start. Basically, putting them at the beginning of the container.
+  - `justify-end` to align items to the end. Basically, putting them at the end of the container.
+  - `justify-between` to distribute items evenly. The first item is at the start, the last item is at the end, and the rest of the items are evenly distributed.
+  - `justify-around` to distribute items evenly with equal space around them. `justify-evenly` can also do this.
+  - `justify-stratch` to stretch the items to fill space on the main axis.
+
+
+- Use **justify items** to align ALL items inside a **container cell** along main axis (basically to align all the items with respect to the cell they are located in).
+  - `justify-items-center` to center the items at the start of their cells.
+  - `justify-items-end` to align items to the end of their cells.
+  - `justify-items-center` to center the items in their cells.
+  - `justify-items-stretch` to stretch the items to fill the cells.
+
+
+- Use **align content** to align items along the cross axis. This is used for multi-row grids and flexbox.
+  - `content-start`  to pack rows in a container against the start of the cross axis.
+  - `content-center` to pack rows in a container in the center of the cross axis.
+  - `content-end` to pack rows in a container against the end of the cross axis.
+  - `content-between`  to distribute rows in a container such that there is an equal amount of space between each line.
+  - `content-around` to distribute rows in a container such that there is an equal amount of space around each line.
+  - `content-evenly` similar to `content-around` but the space is distributed evenly.
+  - `content-stretch` to stretch the rows, **across the cross-axis**, to fill the container.
+
+
+- Use **align items** to align items along the cross axis. 
+  - Syntax is `items-*`.
+
+
+- Use `place-content` to align items along both axes.
+  - `place-items` and `place-self` appear here also.
+
+**THIS GOES FOR THE ITEM INSIDE THE CONTAINER**
+
+Everything here aligns the items inside the flexbox/grid cell with respect to the flexbox/grid cell.
+
+- Use `justify-self-*` to align a single item along the inline axis. It works exactly like `justify-items-*` but for a single item.
+- Use `align-self-*` to align a single item along the cross axis. It works exactly like `align-items-*` but for a single item.
+- Use `place-self` to align a single item along both axes.
