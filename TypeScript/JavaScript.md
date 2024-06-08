@@ -34,3 +34,16 @@ Returns the type of the operand: `typeof 0 // "number"`
 - Example: `confirm(question);`
 
 ## Type Conversion
+Functions and operators automatically convert to the right type.
+ - Mathematical operations automatically convert to `number`.
+
+`String(x)` -> Converts x to a string.
+
+`Number(x)` -> Converts x to a number. If the conversion fails we get a `NaN`.
+
+`Boolean(x)`-> Converts x to a boolean. 
+- Values that are intuitively “empty”, like `0`, an empty string, `null`, `undefined`, and `NaN`, become **false**.
+- Other values become `true`.
+
+Number converts **true into 1** and **false into 0**.
+
