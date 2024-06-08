@@ -47,3 +47,40 @@ Functions and operators automatically convert to the right type.
 
 Number converts **true into 1** and **false into 0**.
 
+## Operators
+JS supports all basic operators plus `**` used for exponentiation.
+
+### Exponentiation
+The exponentiation operator `a ** b` raises `a` to the power of `b`.
+  - b can also be smaller than 1 to have roots.
+
+### String concatenation with `+`
+If the binary + is applied to strings, it merges (concatenates) them:
+```javascript
+let s = "my" + "string";
+alert(s); // mystring
+```
+Note that if any of the operands is a string, then the other one is converted to a string too.
+```javascript
+alert( '1' + 2 ); // "12"
+alert( 2 + '1' ); // "21"
+```
+### Numeric conversion, unary +
+Unary `+` converts the operand to number.
+It does the same think as `Number(...)` but shorter.
+
+### Assignment = returns a value
+The assigment operator return the value on the right.
+
+`b = (a = 1) + 1` : here b has value 2.
+
+Assignments can be changed:
+```javascript
+let a, b, c;
+
+a = b = c = 2 + 2;
+
+alert( a ); // 4
+alert( b ); // 4
+alert( c ); // 4
+```
