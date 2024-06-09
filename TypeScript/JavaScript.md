@@ -1,4 +1,8 @@
 # JavaScript
+## Variable declaration:
+- `let` - (classic variable, mutable)
+- `const` - (constant, can’t be changed)
+- `var` - (old-style)
 
 ## Data Types:
 - `number`: both floats and integers.
