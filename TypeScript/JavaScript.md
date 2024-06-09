@@ -139,4 +139,72 @@ The important difference between `OR` and `??` is that:
 - `||` returns the first **truthy** value.
 - `??` returns the first **defined** value.
 
+## Switch
+Case uses **strict equality**.
+
+Syntax example for switch statement:
+```javascript
+switch(x) {
+  case 'value1':  // if (x === 'value1')
+    ...
+    break;
+
+  case 'value2':  // if (x === 'value2')
+    ...
+    break;
+
+  default:
+    ...
+    break;
+}
+```
+## Functions
+To define a functions use the `function` keyword.
+
+If a function parameter is not passed it will be automatically assigned as `undefined`.
+
+If a function does not return a value, it returns `undefined`.
+
+### Default value parameters
+You can assign a default value to some parameters:
+```javascript
+function showMessage(from, text = "no text given") {
+  alert( from + ": " + text );
+}
+``` 
+Here text has the default value. If it is passed as an argument this default value will be overridden.
+
+### Argument passing
+Values passed to a function as parameters are **copied** to its local variables.
+
+### Function expression
+A function can be passed around as a normal value.
+
+To write anonymous functions we can use **Function Expressions** like this:
+```javascript
+let sayHi = function() {
+  alert( "Hello" );
+};
+```
+### Function expression vs Function declaration
+**Function Declaration** is only visible inside the code block in which it resides.
+
+#### Scope
+- **A Function Expression is created when the execution reaches it and is usable only from that moment.**
+- **A Function Declaration can be called earlier than it is defined.**
+
+### Arrow functions
+Another way to declare functions is with the arrow notation. These are anonymous functions which can be assigned to variables.
+
+Examples:
+
+```javascript
+let func = (arg1, arg2, ..., argN) => expression;
+```
+or with braces
+```javascript
+let func = function(arg1, arg2, ..., argN) {
+  return expression;
+};
+```
 
