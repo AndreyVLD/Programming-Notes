@@ -109,3 +109,34 @@ A regular equality check `==` has a problem. It cannot differentiate `0` from `f
 
 **A strict equality operator `===` checks the equality without type conversion.**
 
+If `a` and `b` are of different types, then `a === b` immediately returns `false` without an attempt to convert them.
+
+### Null and undefined
+The values `null` and `undefined` equal `==` each other and do not equal any other value/
+
+## Conditionals
+### Conditional operator: ?
+The syntax is: `let result = condition ? value1 : value2;`.
+
+## Logical Operators
+
+### || (OR)
+It returns the first `truthy` value or the last value if no `truthy` values are found. It returns the original value of the operand.
+
+### && (AND)
+It returns the first `falsy` value or the last value if no `falsy` values are found. It returns the original value of the operand.
+
+### ?? (Nullish coalescing)
+The result of `a ?? b` is:
+
+- if `a` is defined, then `a`,
+- if `a` isn’t defined, then `b`
+
+`??` returns the first argument if it’s not `null/undefined`. Otherwise, the second one.
+
+The important difference between `OR` and `??` is that:
+
+- `||` returns the first **truthy** value.
+- `??` returns the first **defined** value.
+
+
