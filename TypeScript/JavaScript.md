@@ -39,13 +39,13 @@ Functions and operators automatically convert to the right type.
 
 `String(x)` -> Converts x to a string.
 
-`Number(x)` -> Converts x to a number. If the conversion fails we get a `NaN`.
+`Number(x)` -> Converts x to a number. If the conversion fails we get a `NaN`. Number converts **true into 1** and **false into 0**.
 
 `Boolean(x)`-> Converts x to a boolean. 
 - Values that are intuitively “empty”, like `0`, an empty string, `null`, `undefined`, and `NaN`, become **false**.
 - Other values become `true`.
 
-Number converts **true into 1** and **false into 0**.
+
 
 ## Operators
 JS supports all basic operators plus `**` used for exponentiation.
@@ -67,7 +67,7 @@ alert( 2 + '1' ); // "21"
 ```
 ### Numeric conversion, unary +
 Unary `+` converts the operand to number.
-It does the same think as `Number(...)` but shorter.
+It does the same, think as `Number(...)` but shorter.
 
 ### Assignment = returns a value
 The assigment operator return the value on the right.
@@ -84,3 +84,28 @@ alert( a ); // 4
 alert( b ); // 4
 alert( c ); // 4
 ```
+
+## Comparison
+
+### String comparison
+Strings are compared lexicographically with the usual operators: `<`, `>`, `==`.
+It uses the unicode (ASCII) coding for comparison.
+
+### Different types comparison
+When comparing different types Javascript converts them to `number`.
+
+Examples:
+```javascript
+alert( '2' > 1 ); // true, string '2' becomes a number 2
+alert( '01' == 1 ); // true, string '01' becomes a number 1
+```
+```javascript
+alert( true == 1 ); // true
+alert( false == 0 ); // true
+```
+
+### Strict equality
+A regular equality check `==` has a problem. It cannot differentiate `0` from `false`.
+
+**A strict equality operator `===` checks the equality without type conversion.**
+

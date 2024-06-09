@@ -1,11 +1,17 @@
 # Next.js and React
-## Version for Next.js: 14.2.3
+
+## Installation
+To create a basic Next.js application you can use the following command:
+```shell
+npx create-next-app@latest
+```
+
 ## Components
 - As convention React components start with capital letter.
 - Every component in React is a function that returns some HTML.
 - React components can be used as any HTML tag.
   
-``` JavaScript
+```typescript jsx
 function Header() {
   return <h1>Develop. Preview. Ship.</h1>;
 }
@@ -19,7 +25,7 @@ root.render(<Header />);
 - As in regular HTML, you can pass arguments/props (like `src= something`) to the React Components.
 
 **To pass props:**
-```JavaScript
+```typescript jsx
 function HomePage() {
   return (
     <div>
@@ -31,7 +37,7 @@ function HomePage() {
 
 **To access the prop:**
 The prop is passed as key-value pair (like a hashmap). To select a value we use `pros.value_name` for example: `props.title`.
-```JavaScript
+```typescript jsx
 function Header(props) {
   console.log(props); // { title: "React" }
   return <h1>Develop. Preview. Ship.</h1>;
@@ -41,7 +47,7 @@ function Header(props) {
 
 **Object destructuring:**
 You can use object destructuring to explicitly name the values of props inside your function parameters.
-```JavaScript
+```typescript jsx
 function Header({ title }) {
   console.log(title); // "React"
   return <h1>{title}</h1>; 
@@ -56,14 +62,14 @@ function Header({ title }) {
 
 **Returning string literals:**
 To return a string literal inside some HTML we need to wrap it in `{}`. We can also use f-strings to embed variable values.
-```JavaScript
+```typescript jsx
 function Header({ title }) {
   return <h1>{`Cool ${title}`}</h1>;
 }
 ```
 
 ### Iterating through lists
-```JavaScript
+```typescript jsx
 function HomePage() {
   const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
  
@@ -81,7 +87,7 @@ function HomePage() {
 ```
 ### Adding Interactivity with State
 - To add interactivity we can specify method names in `{}` as arguments for parameters like `onClick`.
-```JavaScript
+```typescript jsx
 function HomePage() {
   // ...
  
@@ -144,14 +150,14 @@ A page is UI that is unique to a route. You can define a page by default exporti
 Each directory (directory -> URL path) that returns something to the web browser should have a `page.js` (`.jsx` `.tsx` also allowed).
 
 For example, to create your `index` page (**your main page**) , add the `page.js` file inside the app directory directly.
-``` TypeScript
+```typescript jsx
 // `app/page.tsx` is the UI for the `/` URL
 export default function Page() {
   return <h1>Hello, Home page!</h1>
 }
 ```
 Then to create further pages, create new folders within the `app` directory and add new `page` file to each of them.
-```TypeScript
+```typescript jsx
 // `app/dashboard/page.tsx` is the UI for the `/dashboard` URL
 export default function Page() {
   return <h1>Hello, Dashboard Page!</h1>
@@ -173,7 +179,7 @@ You can define a layout by default exporting a React component from a `layout.js
 For example, the layout will be shared with the `/dashboard` and `/dashboard/settings` pages:
 ![alt text](image-5.png)
 
-```TypeScript
+```typescript jsx
 export default function DashboardLayout({
   children, // will be a page or nested layout
 }: {
@@ -193,7 +199,7 @@ export default function DashboardLayout({
 The root layout is defined at the top level of the `app` directory and applies to all routes. This layout is required and must contain `html` and `body` tags, allowing you to modify the initial HTML returned from the server.
 
 Default Layout that must  be at the root of `app`:
-```TypeScript
+```typescript jsx
 export default function RootLayout({
   children,
 }: {
@@ -209,6 +215,38 @@ export default function RootLayout({
   )
 }
 ```
+### API Routing and Endpoints
+To create server side API endpoints you can create a route with the usual file structure routing and instead of `page.tsx` have `route.ts` where your endpoints will live.
+
+To access these endpoints you can call them with `fetch` with the appropriate URL (the URL is the folder structure from app root).
+
+The following `HTTP methods` are supported: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`, `HEAD`, and `OPTIONS`. 
+If an unsupported method is called, Next.js will return a` 405 Method Not Allowed` response.
+
+To create an endpoint: in your `route.ts` create and export a function with the name as the HTTP method of your choice.
+The method will take a `Request` (`NextRequest`) and return a `Response` (`NextResponse`).
+
+Example of a `GET` endpoint:
+
+```typescript
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url)
+  const id = searchParams.get('id')
+  const res = await fetch(`https://data.mongodb-api.com/product/${id}`, {
+    headers: {
+      'Content-Type': 'application/json',
+      'API-Key': process.env.DATA_API_KEY!,
+    },
+  })
+  const product = await res.json()
+ 
+  return Response.json({ product })
+}
+```
+The entire request will be executed securely on the server side.
+
+**Be careful not to have conflicting routes between `pages` and `routes`**
+
 ## Dynamic routing
 As convention, to mark a dynamic route (route where can have variables in the URL) we use `[route_name]` directory. Inside the `page.tsx` of the `[route_name]` directory we can access the variable sent to this route by having `{params}:{params:{route_name:Type, param2:Type,...}}` as parameter to the function and calling `params.route_name` to retrieve the value inside the default exported function of the `page.tsx`. Basically `[route_name]` is a placeholder for the value sent in the URL.
 
