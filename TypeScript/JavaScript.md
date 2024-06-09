@@ -207,7 +207,7 @@ let func = (arg1, arg2, ..., argN) => expression;
 ```
 or with braces
 ```javascript
-let func = function(arg1, arg2, ..., argN) {
+let func = (arg1, arg2, ..., argN) => {
   return expression;
 };
 ```
