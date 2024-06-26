@@ -14,7 +14,7 @@
 
 ### Scene
 - each level in the game is a different scene
-- e.g: Game's main manu is another scene
+- e.g: The game's main menu is another scene
 
 ### Shortcuts:
 - ALT + LEFT CLICK = ORBIT (with hand tool)
@@ -22,7 +22,7 @@
 - F to focus on a selected GameObject (in cursor mode)
 - Q and E to control flight in flying mode
 - The camera tools can be accessed with QWERTY (in this order)
-- CTRL + D to duplicate gameObjects
+- CTRL + D to duplicate `gameObjects`
 - Ctrl+Shift+F to move a gameObject to the current scene view ( the in HUB camera)
 
 ### Y-axis is the UP axis
@@ -36,7 +36,7 @@
 #### Time.deltaTime
  - used in `update()` function.
  - it represents the time between frames.
- - used for frame invariant movement -> multiply with something that needs to change every frame and to keep it consistent regarding of framerate.
+ - used for frame invariant movement -> multiply with something that needs to change every frame and to keep it consistent regarding framerate.
 
 
 ### FixedUpdate
@@ -63,7 +63,7 @@
    - Spatial position
    - Rotation
    - Size
- - default measurement unit is **meter**.
+ - the default measurement unit is **meter**.
  - the **local coordinate system** starts at the **center** of the `GameObject`.
  - to translate the object you can use the following: `Transform.Translate(_vector_)`.
 
@@ -73,15 +73,15 @@
 
 ### Rigid Body
  - used to give physical properties.
- - you can freeze `GameObjects` in certain axis to keep objects from falling.
+ - you can freeze `GameObjects` in a certain axis to keep objects from falling.
 
 ### Material
  - components that define the surface characteristics of objects.
 
 #### Features of the Material
  - `Albedo` specifies the base color of a material.
- - `Texture Map` is a texture that can be applied to the material. This in turns changes the surface of the `GameObject`.
- - `Tiling`represents how many times is the texture repeated
+ - `Texture Map` is a texture that can be applied to the material. This in turn changes the surface of the `GameObject`.
+ - `Tiling` represents how many times is the texture repeated
  - `Physic material` changes **friction** and **bounce** but NOT texture.
 
 ## Prefabs
@@ -104,25 +104,25 @@
  - Instances can override properties so that they differ from the parent `Prefab`.
    - They will be marked with **blue** in the inspector overview.
  - You can change the main `Prefab` by selecting to apply the changes from an instance with **Overrides**.
- - You can create a new `Prefab Variant` by dragging a `Prefab Instance with Overrides` into the folder and select `Prefab Variant`.
+ - You can create a new `Prefab Variant` by dragging a `Prefab Instance with Overrides` into the folder and selecting `Prefab Variant`.
  - Prefabs can only find other prefabs by Reference: e.g. by using `GameObject.Find(...)`.
 
 ## Scripting
 ### User input
 #### Basic Way
-- `Input` class with its static methods return `true` if a certain key was pressed in a frame.
+- `Input` class with its static methods returns `true` if a certain key was pressed in a frame.
 - `GetKey` returns true when the user holds down on the key.
 
 #### Advanced Way - Input Manager
 To activate the advanced way: EDIT -> PROJECT SETTINGS -> INPUT MANAGER
 
-Here you can find all the axes, each axis allows movement forwards and backwards on each axis.
+Here you can find all the axes, each axis allows movement forward and backward on each axis.
 
 To get the direction of a movement in a certain axis use `Input.GetAxis(_axis_name)`. This will return a value between -1 and 1 for that particular axis.
 
 To find the name for a certain axis check the `Input Manger`.
 
-To Add new Keybindings select a greater number at the size of axes in input manager.
+To Add new Keybindings select a greater number at the size of axes in the input manager.
 
 #### New Way - Input System 
 To be researched.
@@ -153,13 +153,13 @@ To be researched.
     - `OnTriggerStay`
     - `OnTriggerExit`
  - For a trigger collision to register the following must be true:
-   - One of the object must be a `Rigid Body`.
+   - One of the objects must be a `Rigid Body`.
    - One of the objects must be a `Trigger`.
  - For collision under physics simulation both objects `MUST NOT` be `Triggers`.
-   - OnCollisionEnter
-   - OnCollisionStay
-   - OnCollisionExit   
+   - `OnCollisionEnter`
+   - `OnCollisionStay`
+   - `OnCollisionExit`   
 
 ## Saving Player data
  - To save data use: `PlayerPrefs`
- - Persists in memory Key,Value pairs
+ - Persists in memory Key-Value pairs
